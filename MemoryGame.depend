@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1744039253 source:e:\ltnc\memorygame\main.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	"graphics.h"
+	"defs.h"
+	"logic.h"
+
+1743949290 e:\ltnc\memorygame\graphics.h
+	<SDL.h>
+	<SDL_image.h>
+	"defs.h"
+	"logic.h"
+
+1744038050 e:\ltnc\memorygame\defs.h
+
+1744039360 e:\ltnc\memorygame\logic.h
+	"graphics.h"
+
+1742895990 e:\ltnc\memorygame\toado.h
+
