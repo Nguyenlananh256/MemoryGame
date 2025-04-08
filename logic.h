@@ -9,7 +9,15 @@ struct Tictactoe {
     int board[4][4];
     int card[4][4];
 
+    int count;
+    int preN, preM;
+    bool k ;
+    int number;
+
     void init() {
+        count =1;
+        k = false;
+        number = 0;
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 board[i][j] = 0;
@@ -27,11 +35,6 @@ struct Tictactoe {
             }
         }
     }
-
-
-    int count = 1;
-    int preN, preM;
-    bool k = false;
 
     void move(int x, int y) {
         int n = (x-BOARD_X) / CELL_SIZE;
@@ -65,6 +68,7 @@ struct Tictactoe {
             board[m][n] = -1;
             card[preM][preN] = -1;
             card[m][n] = -1;
+            number++;
         }
         else {
             board[preM][preN] = 0;

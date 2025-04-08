@@ -26,16 +26,21 @@ int main(int argc, char *argv[])
     graphics.start();
     waitUntilKeyPressed();
 
+    bool quit = false;
+    while(!quit) {
     Tictactoe game;
     game.init();
     graphics.render(game);
 
-    bool quit = false;
+    bool isEnd = false;
     SDL_Event e;
-    while (! quit) {
+
+    while (!isEnd) {
         SDL_PollEvent(&e);
         if (e.type == SDL_QUIT) {
             quit = true;
+            isEnd = true;
+            break;
         }
 
         if (e.type == SDL_MOUSEBUTTONDOWN) {
@@ -50,8 +55,15 @@ int main(int argc, char *argv[])
                 game.move1(x, y);
                 game.k = false;
                 graphics.render(game);
+                if(game.number==8) {
+                    graphics.isWin();
+                    waitUntilKeyPressed();
+                    isEnd = true;
+                }
             }
         }
+    }
+    SDL_Delay(10);
     }
 
     graphics.quit();
