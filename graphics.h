@@ -9,14 +9,13 @@
 struct Graphics {
     SDL_Renderer *renderer;
 	SDL_Window *window;
-    SDL_Texture *background, *memory, *play;
+    SDL_Texture *background, *memory;
 	SDL_Texture *cellEmpty, *cell1, *cell2, *cell3, *cell4, *cell5, *cell6, *cell7, *cell8;
 
     void init() {
         initSDL();
         background = loadTexture("img//background.png");
         memory = loadTexture("img//memory.png");
-        play = loadTexture("img//play.png");
         cellEmpty = loadTexture("img//0.png");
         cell1 = loadTexture("img//1.png");
         cell2 = loadTexture("img//2.png");
@@ -28,10 +27,9 @@ struct Graphics {
         cell8 = loadTexture("img//8.png");
     }
 
-    void toPlay() {
+    void start() {
         prepareScene(background);
         renderTexture(memory, 0, 300);
-        renderTexture(play, 350, 450);
         presentScene();
     }
 
@@ -58,6 +56,7 @@ struct Graphics {
 
         presentScene();
     }
+
 
 	void logErrorAndExit(const char* msg, const char* error)
     {
@@ -145,8 +144,6 @@ struct Graphics {
         background = nullptr;
         SDL_DestroyTexture(memory);
         memory = nullptr;
-        SDL_DestroyTexture(play);
-        play = nullptr;
         SDL_DestroyTexture(cellEmpty);
         cellEmpty = nullptr;
         SDL_DestroyTexture(cell1);

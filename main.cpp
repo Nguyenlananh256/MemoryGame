@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     Graphics graphics;
     graphics.init();
 
-    graphics.toPlay();
+    graphics.start();
     waitUntilKeyPressed();
 
     Tictactoe game;
