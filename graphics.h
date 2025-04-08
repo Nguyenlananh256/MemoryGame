@@ -37,10 +37,10 @@ struct Graphics {
     void render(const Tictactoe &game) {
         prepareScene(background);
 
-        for (int i = 0; i < BOARD_SIZE; i++)
-            for (int j = 0; j < BOARD_SIZE; j++) {
-                int x = BOARD_X + j * CELL_SIZE;
-                int y = BOARD_Y + i * CELL_SIZE;
+        for (int i = 0; i < ROW; i++)
+            for (int j = 0; j < COL; j++) {
+                int x = BOARD_X + j * DISTANCE;
+                int y = BOARD_Y + i * DISTANCE;
                 switch (game.board[i][j]) {
                     case 0: renderTexture(cellEmpty, x, y); break;
                     case 1: renderTexture(cell1, x, y); break;

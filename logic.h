@@ -2,12 +2,10 @@
 #define _LOGIC__H
 #include "graphics.h"
 
-#define BOARD_SIZE 4
-
 struct Tictactoe {
 
-    int board[4][4];
-    int card[4][4];
+    int board[ROW][COL];
+    int card[ROW][COL];
 
     int count;
     int preN, preM;
@@ -15,21 +13,21 @@ struct Tictactoe {
     int number;
 
     void init() {
-        count =1;
+        count = 1;
         k = false;
         number = 0;
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
+        for (int i = 0; i < ROW; i++) {
+            for (int j = 0; j < COL; j++) {
                 board[i][j] = 0;
                 card[i][j]=0;
             }
         }
-        for (int i=1; i<=8; i++) {
+        for (int i=1; i<=PAIR; i++) {
             int n, m;
             for (int j = 0; j < 2; j++) {
                 do {
-                    n = rand() % 4;
-                    m = rand() % 4;
+                    n = rand() % ROW;
+                    m = rand() % COL;
                 } while (card[n][m] != 0);
                 card[n][m] = i;
             }
@@ -37,15 +35,15 @@ struct Tictactoe {
     }
 
     void move(int x, int y) {
-        int n = (x-BOARD_X) / CELL_SIZE;
-        int m = (y-BOARD_Y) / CELL_SIZE;
+        int n = (x-BOARD_X) / DISTANCE;
+        int m = (y-BOARD_Y) / DISTANCE;
 
-        if(n<0 || n>=4 || m<0 || m>4) return;
+        if(n<0 || n>=ROW || m<0 || m>=COL) return;
 
-        int minX = BOARD_X + n * CELL_SIZE;
-        int minY = BOARD_Y + m * CELL_SIZE;
-        if (x >= minX && x <= (minX + 150)
-         && y >= minY && y <= (minY + 150)
+        int minX = BOARD_X + n * DISTANCE;
+        int minY = BOARD_Y + m * DISTANCE;
+        if (x >= minX && x <= (minX + CELL_SIZE)
+         && y >= minY && y <= (minY + CELL_SIZE)
          && card[m][n] != -1) {
                 if(count == 2 && (n!= preN || m!= preM)) {
                     board[m][n] = card[m][n];
@@ -61,8 +59,8 @@ struct Tictactoe {
     }
 
     void move1(int x, int y) {
-        int n = (x-BOARD_X) / CELL_SIZE;
-        int m = (y-BOARD_Y) / CELL_SIZE;
+        int n = (x-BOARD_X) / DISTANCE;
+        int m = (y-BOARD_Y) / DISTANCE;
         if(card[m][n] == card[preM][preN]) {
             board[preM][preN] = -1;
             board[m][n] = -1;

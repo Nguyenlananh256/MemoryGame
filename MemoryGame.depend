@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1744119856 source:e:\ltnc\memorygame\main.cpp
+1744124576 source:e:\ltnc\memorygame\main.cpp
 	<iostream>
 	<SDL.h>
 	<SDL_image.h>
@@ -7,15 +7,15 @@
 	"defs.h"
 	"logic.h"
 
-1744115762 e:\ltnc\memorygame\graphics.h
+1744122686 e:\ltnc\memorygame\graphics.h
 	<SDL.h>
 	<SDL_image.h>
 	"defs.h"
 	"logic.h"
 
-1744120169 e:\ltnc\memorygame\defs.h
+1744123196 e:\ltnc\memorygame\defs.h
 
-1744118122 e:\ltnc\memorygame\logic.h
+1744123521 e:\ltnc\memorygame\logic.h
 	"graphics.h"
 
 1742895990 e:\ltnc\memorygame\toado.h
